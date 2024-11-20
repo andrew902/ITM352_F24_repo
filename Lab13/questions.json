@@ -1,0 +1,62 @@
+{
+    "What is the name of the character played by Leonardo Dicaprio in the movie Titanic": {
+        "options": [
+            "Jack Dawson",
+            "Caledon Hockley",
+            "Fabrizio De Rossi",
+            "Jack the Ripper"
+        ],
+        "correct_answer": "Jack Dawson",
+        "hint": "He's a poor artist who wins a ticket aboard the Titanic at a lucky hand at poker...a very lucky hand."
+    },
+    "In the movie Your Name what is the town where Mitsuha lives called": {
+        "options": [
+            "Tokyo",
+            "Kyoto",
+            "Itomori",
+            "Narita"
+        ],
+        "correct_answer": "Itomori",
+        "hint": "The town is fictional and doesn't exist in real life, unlike some of the other options."
+    },
+    "What is the name of the character played by Edward Norton in the movie Fight Club": {
+        "options": [
+            "Tyler Durden",
+            "Joe Goldberg",
+            "Patrick Bateman",
+            "He doesn't have a name"
+        ],
+        "correct_answer": "He doesn't have a name",
+        "hint": "The character is referred to as 'The Narrator.'"
+    },
+    "What is the name of the character in the movie Superbad that buys the alcohol": {
+        "options": [
+            "Evan",
+            "John",
+            "Steve",
+            "McLovin"
+        ],
+        "correct_answer": "McLovin",
+        "hint": "He has a fake ID with only one name that kind of sounds like he's trying to be an Irish R&B singer."
+    },
+    "Who directed the movies Avatar, Titanic, and The Terminator": {
+        "options": [
+            "James Cameron",
+            "Steven Spielberg",
+            "Quentin Tarantino",
+            "Martin Scorsese"
+        ],
+        "correct_answer": "James Cameron",
+        "hint": "He is known for groundbreaking visual effects and directed the 1st, 3rd, and 4th highest grossing movies of all time."
+    },
+    "What actress played Adam Sandler's love interest in 50 First Dates": {
+        "options": [
+            "Drew Barrymore",
+            "Jennifer Aniston",
+            "Salma Hayek",
+            "Jessica Alba"
+        ],
+        "correct_answer": "Drew Barrymore",
+        "hint": "She was a child actor and was also in the movie Blended with Adam Sandler."
+    }
+}

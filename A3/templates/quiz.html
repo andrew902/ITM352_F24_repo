@@ -1,0 +1,10 @@
+<form method="POST" action="{{ url_for('quiz') }}">
+    <p>{{ question }}</p>
+    {% for option in options %}
+        <label>
+            <input type="radio" name="answer" value="{{ option }}" required>
+            {{ option }}
+        </label><br>
+    {% endfor %}
+    <button type="submit">Submit</button>
+</form>
