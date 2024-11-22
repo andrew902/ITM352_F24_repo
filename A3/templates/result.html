@@ -2,24 +2,18 @@
 <html lang="en">
 <head>
     <title>Quiz Result</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
-    <h1>Your Quiz Result</h1>
-    <p>Your score: {{ score }} out of 6</p>
-    <p>Quiz completed at: {{ quiz_completed_at }}</p>
-    <p>Incorrect Answers: {{ incorrect_answers }}</p>
-    <p>Correct Answers: {{score}}</p>
-    <p>{{ result_message }}</p>
-
-
-    <a href="{{ url_for('home') }}">Take Quiz Again</a>
+    <div class="container">
+        <h1>Your Quiz Result</h1>
+        <p>Your score: {{ score }} out of 6</p>
+        <p>Quiz completed at: {{ quiz_completed_at }}</p>
+        <p>Incorrect Answers: {{ incorrect_answers }}</p>
+        <p>Correct Answers: {{ score }}</p>
+        <p>{{ result_message }}</p>
+        <a href="{{ url_for('home') }}">Take Quiz Again</a>
+    </div>
 </body>
 </html>
-
-
-
-
-
-
-
-
+<!-- I used chatgpt to help me pass over the "quiz_completed_at" variable to result.html. I also asked chatgpt how to connect my CSS file to my result.html file -->

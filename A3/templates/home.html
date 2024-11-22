@@ -1,10 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Welcome to the Quiz</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz App</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
-    <h1>Welcome to Andrew's Movie Quiz 🫠</h1>
-    <a href="{{ url_for('quiz') }}">Start Quiz</a>
+    <div class="container">
+        <h1>Welcome to my Movie Quiz 🫠</h1>
+        <p>(Andrew's Favorite Movies)</p>
+        <form action="{{ url_for('quiz') }}" method="GET">
+            <button type="submit">Start Quiz</button>
+        </form>
+    </div>
 </body>
 </html>
+<!-- I asked chatgpt how to connect my CSS file to my home.html file -->

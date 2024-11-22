@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for, session
 import json
 import random
 import datetime
@@ -40,7 +40,7 @@ def quiz():
             print(f"Correct! Updated Score: {score}")
         else:
             incorrect_answers += 1  # Increment incorrect answers counter
-            feedback = f"Incorrect 😔. The correct answer was: {correct_answer}."
+            feedback = f"Incorrect 😔 The correct answer was: {correct_answer}."
             print(f"Incorrect. Score Remains: {score}")
 
         # Store the user's answer for later review (if needed)
@@ -68,13 +68,49 @@ def quiz():
 
 @app.route('/result') 
 def result():
-    global score
+    global score, shuffled_questions
     score = int(request.args.get('score', 0))  # Ensure score is passed correctly
     user_answers = request.args.get('user_answers')  # Retrieve user's answers
     total_questions = int(request.args.get('total_questions', 0))  # Get the total number of questions
     quiz_completed_at = request.args.get('quiz_completed_at')  # Retrieve the time the quiz was completed
     incorrect_answers = int(request.args.get('incorrect_answers', 0))  # Get the number of incorrect answers
     return render_template('result.html', score=score, total_questions=total_questions, user_answers=user_answers, quiz_completed_at=quiz_completed_at, incorrect_answers=incorrect_answers)
+
+# I asked chatgpt how to structure the Restful API routes foe questions and scores
+@app.route('/api/questions', methods=['GET'])
+def get_questions():
+    """RESTful API to retrieve quiz questions."""
+    return {"questions": shuffled_questions}, 200  # Return the shuffled questions as JSON
+
+@app.route('/api/scores', methods=['POST'])
+def save_score_api():
+    """RESTful API to save user scores."""
+    # Parse the incoming JSON data
+    user_data = request.get_json()
+
+    # Ensure all required fields are present
+    required_fields = {"username", "score", "questions", "user_answers"}
+    if not user_data or not required_fields.issubset(user_data):
+        return {"error": "Invalid data format or missing fields."}, 400
+
+    file_path = "user_scores.json"
+
+    # Read the existing scores
+    try:
+        with open(file_path, "r") as file:
+            existing_data = json.load(file)
+    except (FileNotFoundError, json.JSONDecodeError):
+        existing_data = []
+
+    # Append the new data
+    existing_data.append(user_data)
+
+    # Save it back to the file
+    with open(file_path, "w") as file:
+        json.dump(existing_data, file, indent=4)
+
+    return {"message": "Score saved successfully!"}, 201
+
 
 # Load questions from a JSON file
 with open("questions.json") as question_file:

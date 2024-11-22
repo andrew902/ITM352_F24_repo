@@ -1,0 +1,132 @@
+/* General body styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #64c9fb;
+    color: #000000;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+/* Container for the quiz content */
+.container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ddd;
+}
+
+/* Heading style */
+h1, h2 {
+    text-align: center;
+    color: #2c3e50;
+}
+
+/* Question styling */
+p {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+/* Options styling */
+label {
+    display: block;
+    font-size: 16px;
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background: #f9f9f9;
+    cursor: pointer;
+    transition: background 0.3s, border 0.3s;
+}
+
+label:hover {
+    background: #1cc510;
+    border-color: #aaa;
+}
+
+/* Hide the default radio button */
+input[type="radio"] {
+    display: none;
+}
+
+/* Highlight the selected answer */
+input[type="radio"]:checked + span {
+    background: #1cc510;
+    border: 1px solid #3c763d;
+    color: white;
+    font-weight: bold;
+    display: inline-block;
+    padding: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* Wrap the text in a span */
+label span {
+    display: inline-block;
+    padding: 10px;
+    border-radius: 4px;
+    width: 100%;
+    text-align: center;
+}
+
+/* Button styling */
+button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #3498db;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #2943b9;
+}
+
+/* Current score display */
+p.score {
+    text-align: center;
+    font-size: 20px;
+    color: #2c3e50;
+    margin-top: 20px;
+}
+
+/* Feedback message styling */
+p.feedback {
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    color: #e74c3c;
+    margin-top: 20px;
+}
+
+.feedback.correct {
+    color: #27ae60; /* Green for correct answers */
+}
+
+.feedback.incorrect {
+    color: #e74c3c; /* Red for incorrect answers */
+}
+/* Result page */
+.result {
+    text-align: center;
+    font-size: 20px;
+    color: #27ae60;
+    margin-top: 20px;
+}
+
+.result h2 {
+    color: #2980b9;
+}
+
+/* I used chatgpt to help me structre my CSS file by asking it how to structure a css file for a quiz app. */

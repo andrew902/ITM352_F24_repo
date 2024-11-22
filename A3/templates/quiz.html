@@ -1,13 +1,35 @@
-<form method="POST" action="{{ url_for('quiz') }}">
-    <p>{{ question }}</p>
-    {% for option in options %}
-        <label>
-            <input type="radio" name="answer" value="{{ option }}" required>
-            {{ option }}
-        </label><br>
-    {% endfor %}
-    
-    <button type="submit">Submit Answer</button>
-</form>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz</title>
+    <!-- Link to the CSS file -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="quiz-container">
+        <form method="POST" action="{{ url_for('quiz') }}">
+            <p>{{ question }}</p>
+            {% for option in options %}
+                <label>
+                    <input type="radio" name="answer" value="{{ option }}" required>
+                    <span> {{ option }}</span>
+                </label><br>
+            {% endfor %}
+            
+            <button type="submit">Submit Answer</button>
+        </form>
 
-<p>Current Score: {{ score }}</p>
+        <!-- Feedback Section -->
+        {% if feedback %}
+        <p class="feedback {% if 'Correct' in feedback %}correct{% else %}incorrect{% endif %}">
+            {{ feedback }}
+        </p>
+    {% endif %}
+
+        <p>Current Score: {{ score }}</p>
+    </div>
+</body>
+</html>
+<!-- I asked chatgpt how to connect my CSS file to my quiz.html file. I also used chatgpt to help me format my live feedback by asking it how to make it when it says correct green and incorrect red. -->
