@@ -5,13 +5,13 @@ import pandas as pd
 trips_df = pd.read_json("../Trips from area 8.json")
 
 trip_miles_gt_0 = trips_df[['trip_miles', 'fare']].query('trip_miles > 0')
-fare_series = trip_miles_gt_0.fare
+fare_series = trip_miles_gt_0.fare 
 trip_miles = trip_miles_gt_0.trip_miles
 
-plt.plot(fare_series, trip_miles, linestyle="none", marker=".")
-plt.plot(fare_series, trip_miles, marker="v")
-plt.scatter(trip_miles, fare_series)
-plt.title("fares by Taxi Trip Miles")
+#plt.plot(fare_series, trip_miles, linestyle="none", marker=".")
+plt.plot(fare_series, trip_miles, marker="v", linestyle="none", color='c', alpha=0.2)
+#plt.scatter(fare_series, trip_miles)
+plt.title("Fares by Traxi Trip Miles")
 plt.ylabel("Distance in Miles")
 plt.xlabel("Total Fare in Dollars")
 
