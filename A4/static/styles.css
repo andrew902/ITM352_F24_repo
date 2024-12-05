@@ -1,0 +1,66 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff;
+    color: #333;
+}
+
+header {
+    background-color: #0073e6;
+    color: white;
+    text-align: center;
+    padding: 1em 0;
+}
+
+main {
+    padding: 2em;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.input-field {
+    width: 80%;  
+    height: 80%;
+    text-align: center;
+    border: none;
+    background-color: transparent;
+    font-size: 14px;
+    outline: none;
+}
+
+.input-field:focus {
+    background-color: #ff0000;  
+}
+
+#halhigdonschedule {
+    width: 55%; /* Adjust the size of your image */
+    height: auto;
+    display: block;         
+    margin: 0 auto;         
+}
+
+.schedule-container {
+    position: relative;
+    display: inline-block;
+    overflow: hidden; 
+}
+.day-checkbox {
+    position: absolute;
+    width: 30px; /* Adjust checkbox size */
+    height: 30px; /* Adjust checkbox size */
+    opacity: 10%; /* Hide the checkbox visually */
+    cursor: pointer;
+}
+
+.fire-emoji {
+    position: absolute;
+    font-size: 21px;
+    visibility: hidden; /* Hide emoji by default */
+}
+
+.day-checkbox:checked + .fire-emoji {
+    visibility: visible; /* Show emoji when checkbox is checked */
+}
