@@ -1,6 +1,7 @@
 import json
-from flask import Flask, render_template, request, redirect, url_for, flash
-from flask_login import LoginManager, UserMixin, login_user, login_required, logout_user, current_user
+from flask import Flask, render_template, request, redirect, url_for, session, flash
+from flask_sqlalchemy import SQLAlchemy
+from flask_login import LoginManager, UserMixin, login_user, login_required, logout_user, login_manager
 import requests
 from datetime import datetime, timedelta
 
@@ -8,38 +9,27 @@ from datetime import datetime, timedelta
 # Initialize Flask app
 app = Flask(__name__)
 
-API_KEY = "b74e844c4803cdb071a54d67b274fe2c"
-BASE_URL = "https://api.openweathermap.org/data/3.0/onecall"
 
+# Route for the homepage or dashboard
 @app.route("/", methods=["GET", "POST"])
 def dashboard():
-    # Default coordinates for Honolulu 
-    lat, lon = 21.3099, 157.8581
-    
-    # Get weather data
-    response = requests.get(
-        BASE_URL,
-        params={
-            "lat": lat,
-            "lon": lon,
-            "exclude": "minutely,hourly,alerts",
-            "units": "imperial",
-            "appid": API_KEY,
-        },
-    )
-    weather_data = response.json()
+    return render_template("dashboard.html")
 
-    # Extract 7-day forecast
-    forecast = weather_data["daily"][:7]
 
-    return render_template("dashboard.html",forecast=forecast)
+# Route for Recommended Running Routes page
+@app.route('/recommended-routes')
+def recommended_routes():
+    return render_template('recommended-routes.html')
 
-@app.template_filter("dateformat")
-def dateformat(index):
-    from datetime import datetime, timedelta
-    target_date = datetime.now() + timedelta(days=index)
-    return target_date.strftime("%a, %b %d")
+# Route for Marathon Gear page
+@app.route('/marathon-gear')
+def marathon_gear():
+    return render_template('marathon-gear.html')
 
+# Route for Cross Training page
+@app.route('/cross-training')
+def cross_training():
+    return render_template('cross-training.html')
 
 
 if __name__ == "__main__":

@@ -21,46 +21,229 @@ main {
     align-items: center;
 }
 
-.input-field {
-    width: 80%;  
-    height: 80%;
+
+
+
+
+table {
+    border-collapse: collapse;
+    margin: 2em auto; /* Centers the table */
+    width: 60%; /* Adjusted width for balance */
+    max-width: 600px; /* Prevents the table from being too wide */
+    height: 50vh; /* Ensures the table takes up half the viewport height */
+}
+
+td {
+    border: 1px solid #333; /* Adds square borders */
+    padding: 12px; /* Larger padding for bigger cells */
     text-align: center;
-    border: none;
-    background-color: transparent;
+    width: 40px; /* Adjusted for larger square size */
+    height: 25px; /* Ensures cells are rectangular but balanced */
+    vertical-align: middle;
+    position: relative
+}
+
+tr:nth-child(even) td {
+    background-color: #f2f2f2; /* Alternating row color for readability */
+}
+
+tr:hover td {
+    background-color: #ddd; /* Highlight on hover */
+}
+
+
+
+
+
+
+
+
+body {
+    font-family: "Arial", sans-serif;
+    background-color: #f0f0f5; /* Light background */
+    color: #333;
+    padding: 20px;
+}
+
+#weather-container {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    overflow-x: auto;
+    padding: 10px;
+}
+
+.weather-day {
+    background-color: #ffffff; /* White background for each day */
+    padding: 15px;
+    border-radius: 20px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow */
+    width: 120px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.weather-day:hover {
+    transform: translateY(-5px); /* Hover effect */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+}
+
+.weather-day img {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 10px;
+}
+
+.weather-day h3 {
+    font-size: 18px;
+    font-weight: 600;
+    margin: 10px 0;
+}
+
+.weather-day p {
     font-size: 14px;
-    outline: none;
+    margin: 5px 0;
 }
 
-.input-field:focus {
-    background-color: #ff0000;  
+.weather-day .temperature {
+    font-size: 20px;
+    font-weight: 700;
+    color: #ff5c5c; /* Warm color for temperature */
 }
 
-#halhigdonschedule {
-    width: 55%; /* Adjust the size of your image */
-    height: auto;
-    display: block;         
-    margin: 0 auto;         
+
+
+
+
+
+
+#journal-container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
 }
 
-.schedule-container {
-    position: relative;
-    display: inline-block;
-    overflow: hidden; 
+textarea {
+    width: 100%;
+    height: 100px;
+    margin-bottom: 10px;
 }
-.day-checkbox {
+
+button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+
+#saved-entries {
+    margin-top: 20px;
+    text-align: left;
+}
+
+.entry {
+    margin: 10px 0;
+    padding: 10px;
+    background-color: #f4f4f4;
+    border-left: 5px solid #4CAF50;
+    position: relative
+}
+
+.entry h4 {
+    margin: 0;
+    font-size: 16px;
+}
+
+.entry p {
+    font-size: 14px;
+}
+
+/* Style for the delete button (red X) */
+.delete-button {
     position: absolute;
-    width: 30px; /* Adjust checkbox size */
-    height: 30px; /* Adjust checkbox size */
-    opacity: 10%; /* Hide the checkbox visually */
+    top: 10px;
+    right: 10px;
+    background-color: transparent; /* Transparent background */
+    border: none;
+    color: red;
+    font-size: 20px;
     cursor: pointer;
 }
 
-.fire-emoji {
-    position: absolute;
-    font-size: 21px;
-    visibility: hidden; /* Hide emoji by default */
+button.delete-button:hover {
+    color: rgb(175, 45, 45); /* Dark red color when hovered */
 }
 
-.day-checkbox:checked + .fire-emoji {
-    visibility: visible; /* Show emoji when checkbox is checked */
+
+
+
+
+
+
+
+
+
+#quote-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+#toggle-quote {
+    padding: 10px 20px;
+    background-color: #0073e6;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+}
+
+#toggle-quote:hover {
+    background-color: #005bb5;
+}
+
+#motivational-quote {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    margin-top: 10px;
+}
+
+
+
+
+
+/* Styling the links to look like buttons */
+#tabs {
+    display: flex;
+    justify-content: center; /* Centers the buttons horizontally */
+    align-items: center; /* Centers the buttons vertically */
+    gap: 15px; /* Optional: Adds space between the buttons */
+    padding: 20px;
+}
+
+
+.tab-link {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    margin: 0 5px;
+    border-radius: 5px;
+}
+
+.tab-link:hover {
+    background-color: #45a049;
+}
+
+
+
+.navbar {
+    text-align: right; /* Aligns the content inside to the right */
+    
 }
